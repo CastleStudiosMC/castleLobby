@@ -1,15 +1,15 @@
 package de.castlestudios.castlelobby.listeners;
 
 import de.castlestudios.castlelobby.CastleLobby;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class ConnectionListener implements Listener {
 
@@ -26,6 +26,17 @@ public class ConnectionListener implements Listener {
         player.setFoodLevel(config.getInt("food-level"));
         player.setHealth(config.getInt("health"));
         player.setLevel(config.getInt("level"));
+        player.setGameMode(GameMode.valueOf(String.valueOf(config.get("gamemode"))));
+
+        String navigatorName = config.getString("Navigator.title");
+        navigatorName = navigatorName.replaceAll("&", "§");
+
+        ItemStack navigator = new ItemStack(Material.valueOf(String.valueOf(config.get("Navigator.item"))));
+        ItemMeta navigatorMeta = navigator.getItemMeta();
+        navigatorMeta.setDisplayName(navigatorName);
+        navigator.setItemMeta(navigatorMeta);
+
+        player.getInventory().setItem(config.getInt("Navigator.slot"), navigator);
 
         World world = Bukkit.getWorld(config.getString("Location.spawn.world"));
         double x = config.getDouble("Location.spawn.x");
@@ -35,7 +46,6 @@ public class ConnectionListener implements Listener {
         float pitch = (float) config.getDouble("Location.spawn.pitch");
 
         Location loc = new Location(world, x, y, z, yaw, pitch);
-
         player.teleport(loc);
     }
 

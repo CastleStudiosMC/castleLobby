@@ -15,6 +15,7 @@ Quit-Message: "&b%player% &chas left the server."
 level: 2024
 food-level: 20
 health: 20
+gamemode: ADVENTURE
 
 # Now here you can disable (false), and enable (true) events.
 
@@ -26,3 +27,26 @@ pickup-items: false
 drop-items: false
 move-items: false
 enable-food: false
+
+# Here you can set the Navigator Item
+
+Navigator:
+  title: "&a&lNavigator"
+  slot: 0
+  item: COMPASS
+
+# Inventory of the Navigator
+
+Inventory:
+  navigator:
+    title: "&a&lNavigator"
+    size: 27
+    items:
+      0:
+        item: MAGMA_CREAM
+        name: "&e&lSpawn"
+        slot: 13
+
+
+
+

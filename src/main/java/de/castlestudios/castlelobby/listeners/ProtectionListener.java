@@ -74,7 +74,8 @@ public class ProtectionListener implements Listener {
     }
     @EventHandler
     public void onFood(FoodLevelChangeEvent event) {
-            if (CastleLobby.getInstance().getConfig().getBoolean("enable-food") == false) {
+        if (CastleLobby.getInstance().getConfig().getBoolean("enable-food") == false) {
+                event.setFoodLevel(20);
                 event.setCancelled(true);
             } else {
                 event.setCancelled(false);

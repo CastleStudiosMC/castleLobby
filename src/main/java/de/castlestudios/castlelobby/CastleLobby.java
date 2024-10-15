@@ -2,6 +2,7 @@ package de.castlestudios.castlelobby;
 
 import de.castlestudios.castlelobby.commands.SetLobbyCommand;
 import de.castlestudios.castlelobby.listeners.ConnectionListener;
+import de.castlestudios.castlelobby.listeners.InteractListener;
 import de.castlestudios.castlelobby.listeners.ProtectionListener;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -21,6 +22,7 @@ public final class CastleLobby extends JavaPlugin {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new ConnectionListener(), this);
         getServer().getPluginManager().registerEvents(new ProtectionListener(), this);
+        getServer().getPluginManager().registerEvents(new InteractListener(), this);
 
         getCommand("setlobby").setExecutor(new SetLobbyCommand());
 
