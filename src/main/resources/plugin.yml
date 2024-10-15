@@ -2,3 +2,6 @@ name: castleLobby
 version: '1.0-SNAPSHOT'
 main: de.castlestudios.castlelobby.CastleLobby
 api-version: '1.21'
+
+commands:
+  setlobby:

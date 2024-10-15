@@ -1,0 +1,28 @@
+# The Config.yml of the CastleLobby Plugin, please note that if anything here is wrong, the complete plugin will disable!
+
+# So lets set the Messages of the plugin:
+Prefix: "&6&lCastleLobby &7&l»"
+NoPermission: "%prefix% &c&lYou are not allowed to do that."
+SetLobby: "%prefix% &7&lYou have set the &a&lLobby &7&lspawn successfully."
+
+# Let us set the join and quit messages! Leave the "" blank for nothing:
+
+Join-Message: "&b%player% &ahas joined the server."
+Quit-Message: "&b%player% &chas left the server."
+
+# Lets set the hotbar:
+
+level: 2024
+food-level: 20
+health: 20
+
+# Now here you can disable (false), and enable (true) events.
+
+break-blocks: false
+place-blocks: false
+lobby-damage: false
+swap-hands: false
+pickup-items: false
+drop-items: false
+move-items: false
+enable-food: false
